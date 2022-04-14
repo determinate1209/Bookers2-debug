@@ -44,8 +44,8 @@
           <% @books.book_comments.each do |book_comment| %>
         <tr>
           <td>  
-            <%= link_to(@books.user) do %>
-              <%= image_tag @books.user.get_profile_image, size:"80x80" %><br>
+            <%= link_to(book_comment.user) do %>
+              <%= image_tag book_comment.user.get_profile_image, size:"80x80" %><br>
               <%= book_comment.user.name %>
             <% end %>
           </td>

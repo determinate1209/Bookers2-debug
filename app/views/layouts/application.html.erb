@@ -8,8 +8,10 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
   <body>
     <%= render 'layouts/header' %>
+    <%= render 'searches/form', user: @user %>
       <main>
         <p id="notice"><%= notice %></p>
         <%= yield %>

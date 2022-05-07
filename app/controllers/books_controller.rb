@@ -3,11 +3,19 @@ before_action :move_to_signed_in, only: [:edit, :index, :show]
 before_action :correct_user, only: [:edit, :update]
 
   def show
-    @books = Book.find(params[:id])
-    @user = @books.user
-    @book = Book.new
-    @book_comment = BookComment.new
-    
+    @see = See.find_by(ip: request.remote_ip) 
+    if @see
+      @books = Book.find(params[:id])
+      @user = @books.user
+      @book = Book.new
+      @book_comment = BookComment.new
+    else
+      @books = Book.find(params[:id])
+      @user = @books.user
+      @book = Book.new
+      @book_comment = BookComment.new
+      See.create(ip: request.remote_ip)
+    end
     
   end
 
